@@ -9,15 +9,15 @@ script:
   - docker run mkab/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t mkab/multi-client ./client
-  - docker build -t mkab/multi-nginx ./nginx
-  - docker build -t mkab/multi-server ./server
-  - docker build -t mkab/multi-worker ./worker
+  - docker build -t mkabdulsalam/multi-client ./client
+  - docker build -t mkabdulsalam/multi-nginx ./nginx
+  - docker build -t mkabdulsalam/multi-server ./server
+  - docker build -t mkabdulsalam/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push mkab/multi-client
-  - docker push mkab/multi-nginx
-  - docker push mkab/multi-server
-  - docker push mkab/multi-worker
+  - docker push mkabdulsalam/multi-client
+  - docker push mkabdulsalam/multi-nginx
+  - docker push mkabdulsalam/multi-server
+  - docker push mkabdulsalam/multi-worker
 
